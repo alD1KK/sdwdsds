@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expandable Sections with Animation</title>
+    <style>
+      .info {
+        max-height: 0;
+        padding: 0 10px;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        background-color: #f2f2f2;
+        border: 1px solid #000;
+        margin-top: 5px;
+      }
+      .button {
+        padding: 10px 15px;
+        margin: 10px 0;
+        display: block;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+        background-color: #444;
+        color: #fff;
+        border: none;
+      }
+      .container {
+        width: 50%;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <button class="button" onclick="toggleInfo('info1')">Чтение</button>
+        <div id="info1" class="info">Скрытая информация 1</div>
+      </div>
+      <div>
+        <button class="button" onclick="toggleInfo('info2')">Чтение</button>
+        <div id="info2" class="info">Скрытая информация 2</div>
+      </div>
+      <div>
+        <button class="button" onclick="toggleInfo('info3')">Чтение</button>
+        <div id="info3" class="info">Скрытая информация 3</div>
+      </div>
+    </div>
+
+    <script>
+      function toggleInfo(infoId) {
+        var info = document.getElementById(infoId);
+        if (info.style.maxHeight) {
+          info.style.maxHeight = null;
+          info.style.padding = "0 10px";
+        } else {
+          info.style.maxHeight = info.scrollHeight + "px";
+          info.style.padding = "10px";
+        }
+      }
+    </script>
+  </body>
+</html>
